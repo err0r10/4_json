@@ -18,6 +18,17 @@ Example:
 $ cd ./4_json/
 $ echo [{"root": {"child1":1, "child2":2, "child3": 3} }] >> test_file.json
 $ python pprint_json.py test_file.json
+
+#result:
+[
+    {
+        "root": {
+            "child1": 1,
+            "child2": 2,
+            "child3": 3
+        }
+    }
+]
 ```
 
 

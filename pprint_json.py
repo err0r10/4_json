@@ -4,23 +4,23 @@ from os.path import isfile
 
 
 def read_file(path_file):
-    with open(path_file) as file_description:
-        return file_description.read()
+    with open(path_file) as desc:
+        return desc.read()
 
 
-def check_data(json_data):
-    return 1 if len(json_data) else None
+def check_data(content):
+    return 1 if len(content) else None
 
 
-def format_data(json_data):
-    return json.dumps(json.loads(json_data), indent=4,  ensure_ascii=False)
+def prettify(content):
+    return json.dumps(json.loads(content), indent=4,  ensure_ascii=False)
 
 
 def print_json(path_file):
     if isfile(path_file):
-        _read_data = read_file(path_file)
-        if check_data(_read_data):
-            return format_data(_read_data)
+        content_json = read_file(path_file)
+        if check_data(content_json):
+            return prettify(content_json)
         else:
             return 'File is empty'
     else:
