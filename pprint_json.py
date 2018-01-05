@@ -9,11 +9,15 @@ def read_file(path_file):
 
 
 def check_data(content):
-    return 1 if content else None
+    return True if content else False
 
 
 def prettify(content):
-    return json.dumps(json.loads(content), indent=4,  ensure_ascii=False)
+    return json.dumps(
+                json.loads(content),
+                indent=4,
+                ensure_ascii=False
+    )
 
 
 def print_json(path_file):
@@ -29,7 +33,9 @@ def print_json(path_file):
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
-        print(print_json(sys.argv[1]))
+        print(
+            print_json(sys.argv[1])
+        )
     else:
         print(
             "Run from command line and set one parameter, "
