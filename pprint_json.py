@@ -3,11 +3,11 @@ import sys
 
 
 def read_file(filename):
-    with open(filename) as target_file:
-        return target_file.read()
+    with open(filename) as json_file:
+        return json_file.read()
 
 
-def prettify(content):
+def prettify_json(content):
     return json.dumps(
         json.loads(content),
         indent=4,
@@ -16,19 +16,20 @@ def prettify(content):
 
 
 def print_json(filename):
-    try:
-        source_file = read_file(filename)
-        if source_file:
-            print(prettify(source_file))
-        else:
-            print("File '{0}' empty".format(filename))
-    except FileNotFoundError as not_found:
-        print("File '{0}' not found".format(not_found.filename))
+    print(prettify_json(read_file(filename)))
 
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
-        print_json(sys.argv[1])
+        filename = sys.argv[1]
+        try:
+            source_file = read_file(filename)
+            if source_file:
+                print_json(source_file)
+            else:
+                print("File '{0}' empty".format(filename))
+        except FileNotFoundError as not_found:
+            print("File '{0}' not found".format(not_found.filename))
     else:
         print(
             "Run from command line and set one parameter, "
