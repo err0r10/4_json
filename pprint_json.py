@@ -15,8 +15,8 @@ def prettify_json(content):
     )
 
 
-def print_json(filename):
-    print(prettify_json(read_file(filename)))
+def get_prettify_json(filename):
+    return prettify_json(read_file(filename))
 
 
 if __name__ == "__main__":
@@ -25,13 +25,12 @@ if __name__ == "__main__":
         try:
             source_file = read_file(filename)
             if source_file:
-                print_json(source_file)
+                print(prettify_json(source_file))
             else:
                 print("File '{0}' empty".format(filename))
         except FileNotFoundError as not_found:
             print("File '{0}' not found".format(not_found.filename))
     else:
         print(
-            "Run from command line and set one parameter, "
-            "example: python pprint_json.py test.json"
+            "Run from command line and set one parameter"
         )
