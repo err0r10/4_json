@@ -15,10 +15,6 @@ def prettify_json(content):
     )
 
 
-def get_prettify_json(filename):
-    return prettify_json(read_file(filename))
-
-
 if __name__ == "__main__":
     if len(sys.argv) == 2:
         filename = sys.argv[1]
