@@ -19,9 +19,9 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         filename = sys.argv[1]
         try:
-            data_file = read_file(filename)
-            if data_file:
-                print(prettify_json(data_file))
+            data_json = read_file(filename)
+            if data_json:
+                print(prettify_json(data_json))
             else:
                 print("File '{0}' empty".format(filename))
         except FileNotFoundError as not_found:
